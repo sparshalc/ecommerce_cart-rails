@@ -1,0 +1,18 @@
+<style>
+.alert {
+    position: absolute;
+    right: 650px;
+    margin-top: 10px;
+}
+</style>
+
+<% if flash[:notice]%>
+    <div class="alert alert-primary" role="alert">
+        <%= flash[:notice]%>
+    </div>
+<% end %>
+<% if flash[:alert]%>
+    <div class="alert alert-danger" role="alert">
+        <%= flash[:alert]%>
+    </div>
+<% end %>

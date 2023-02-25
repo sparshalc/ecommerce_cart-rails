@@ -1,0 +1,37 @@
+
+<style>
+    .what{
+        width: auto;
+        height: 200px;  
+        object-fit: cover;
+    }
+</style>
+<div class="container">
+    <% @cart.orderables.each do|orderable| %>
+    <% product = orderable.product%>
+    <hr>
+    <div class="container col-xxl-8 ">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+            <%= image_tag(product.image, class: 'what d-block mx-lg-auto img-fluid')%>
+        </div>
+        <div class="col-lg-6">
+            <h2 class="display-5 fw-bold"><%= product.name %></h2>
+            <p class="display-6">Rs.<%= product.price %></p>
+            <p class="display-7">
+                <%= form_with(url: cart_add_path) do |f|%>
+                <%= f.number_field :quantity, value: orderable.quantity,min: 0, class: 'form-control',type: :disabled? %>
+                <% end %>
+            </p>
+            <div class="d-grid">
+            <%= form_with(url: cart_destroy_path) do |f|%>
+                <%= f.hidden_field :id, value: orderable.id %>
+                <%= f.submit "Remove form cart", class: 'btn btn-danger btn-lg px-4 me-md-2'%>
+            <% end %>
+            </div>
+        </div>
+        </div>
+    </div>
+    <hr>
+  <% end %>
+</div>

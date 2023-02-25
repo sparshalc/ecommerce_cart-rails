@@ -1,0 +1,25 @@
+<%= turbo_frame_tag "cart" do%>
+
+   <% if @cart.orderables.count > 0 %>
+   <div class="text-center my-4">
+    <%= render 'cart/orderables'%>
+      </div>
+      <div class="container ">
+        <li class="list-group-item d-flex justify-content-between">
+          <span class="display-6">Total: </span>
+          <strong class="display-6">रू<%= @cart.total %></strong>
+          <!-- <%= link_to 'Proceed to Payment', root_path,class: 'btn btn-dark'%> -->
+        </li>
+        </div>
+    <% else %>
+      <div class="container text-center">
+        <hr>
+      <span class="text-center display-6 my-4">Your cart is empty!</span>
+      </div>
+  <% end %>
+<% end %>
+<br>
+<div class="container">
+<hr>
+</div>
+

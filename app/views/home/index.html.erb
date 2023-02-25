@@ -1,0 +1,28 @@
+<% if user_signed_in? %>
+<div class="container col-xxl-8 px-4 py-5">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <%= image_tag('img/ok.png',class:"d-block mx-lg-auto img-fluid")%>
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold lh-1 mb-3">Namaste! <%=current_user.email%></h1>
+      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo debitis ipsa a inventore, repellat eaque vitae iure mollitia quasi repellendus recusandae maiores vel ex dolorum.<b>Happy Shopping.</b></p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <%= link_to 'Begin Shopping',products_path,class:'btn btn-dark'%>
+      </div>
+    </div>
+  </div>
+</div>
+<% else %>
+  <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <%= image_tag('img/ok.png',class:"d-block mx-lg-auto img-fluid")%>
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3">Rails Ecommerce</h1>
+        <p class="lead">Login/Sign up to begin shopping!</p>
+      </div>
+    </div>
+  </div>
+<% end %>
